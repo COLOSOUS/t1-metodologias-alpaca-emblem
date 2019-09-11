@@ -62,6 +62,8 @@ public abstract class AbstractUnit implements IUnit {
     return equippedItem;
   }
 
+
+
   @Override
   public void setEquippedItem(final IEquipableItem item) {
     this.equippedItem = item;

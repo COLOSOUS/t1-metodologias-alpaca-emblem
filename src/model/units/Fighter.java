@@ -28,4 +28,9 @@ public class Fighter extends AbstractUnit {
   public void equipItem(final IEquipableItem item) {
     item.equipAxeTo(this);
   }
+  @Override
+  public void exchangeItem(IEquipableItem item, IUnit unit) {
+    item.equipTo(unit);
+
+  }
 }

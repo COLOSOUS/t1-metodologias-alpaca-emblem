@@ -28,4 +28,9 @@ public class SwordMaster extends AbstractUnit {
   public void equipItem(final IEquipableItem item) {
     item.equipSwordTo(this);
   }
+  @Override
+  public void exchangeItem(IEquipableItem item, IUnit unit) {
+    item.equipTo(unit);
+
+  }
 }

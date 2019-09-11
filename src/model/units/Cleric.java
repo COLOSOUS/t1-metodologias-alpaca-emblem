@@ -36,4 +36,9 @@ public class Cleric extends AbstractUnit {
   public void equipItem(final IEquipableItem item) {
     item.equipStaffTo(this);
   }
+  @Override
+  public void exchangeItem(IEquipableItem item, IUnit unit) {
+    item.equipTo(unit);
+
+  }
 }

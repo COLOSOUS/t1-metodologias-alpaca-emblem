@@ -111,6 +111,22 @@ public abstract class AbstractTestUnit implements ITestUnit {
   }
 
   /**
+   * Tries to equip a weapon to  new unit
+   *
+   * @param item
+   *     to be equipped
+   * @param unit
+   * new owner
+   */
+
+  @Override
+  public void checkExchangeItem(IEquipableItem item,IUnit unit) {
+    assertNull(getTestUnit().getEquippedItem());
+    getTestUnit().exchangeItem(item,unit);
+    assertNull(unit.getEquippedItem());
+  }
+
+  /**
    * @return the test axe
    */
   @Override

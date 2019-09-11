@@ -20,9 +20,18 @@ public interface IUnit {
    * Sets the currently equipped item of this unit.
    *
    * @param item
-   *     the item to equip
    */
   void equipItem(IEquipableItem item);
+    /**
+     * Sets the currently equipped item of this unit by other unit.
+     *
+     * @param item
+     *     the item to equip
+     * @param unit
+     *  new owner
+     */
+
+    void exchangeItem(IEquipableItem item, IUnit unit);
 
   /**
    * @return hit points of the unit

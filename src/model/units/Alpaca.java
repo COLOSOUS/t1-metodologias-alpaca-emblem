@@ -38,5 +38,10 @@ public class Alpaca extends AbstractUnit {
   public void equipItem(final IEquipableItem item) {
     // Method body intentionally left empty
   }
+  @Override
+  public void exchangeItem(IEquipableItem item, IUnit unit) {
+    item.equipTo(unit);
+
+  }
 
 }

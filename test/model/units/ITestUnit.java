@@ -56,6 +56,18 @@ public interface ITestUnit {
   void checkEquippedItem(IEquipableItem item);
 
   /**
+   * Tries to equip a weapon to new unit
+   *
+   * @param item
+   *     to be equipped
+   * @param unit
+   * new owner
+   */
+
+
+  void checkExchangeItem(IEquipableItem item,IUnit unit);
+
+  /**
    * @return the test axe
    */
   Axe getAxe();

@@ -37,4 +37,9 @@ public class Hero extends AbstractUnit {
   public void equipItem(final IEquipableItem item) {
     item.equipSpearTo(this);
   }
+  @Override
+  public void exchangeItem(IEquipableItem item, IUnit unit) {
+    item.equipTo(unit);
+
+  }
 }
