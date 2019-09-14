@@ -48,7 +48,12 @@ public class Archer extends AbstractUnit {
 
   @Override
   public void exchangeItem(IEquipableItem item, IUnit unit) {
-    item.equipTo(unit);
+
+    if(this.getLocation().isNeighbour(unit.getLocation())){
+
+      item.giveTo(unit);
+      item.delete(this);
+    }
 
   }
 }

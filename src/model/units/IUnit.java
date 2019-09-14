@@ -53,6 +53,9 @@ public interface IUnit {
    *     the item to be equipped
    */
   void setEquippedItem(IEquipableItem item);
+  boolean giveItem(IEquipableItem item);
+  void deleteItem(IEquipableItem item);
+
   void setEquippedBow(final Bow item);
   void setEquippedStaff(final Staff item);
   void setEquippedAxe(final Axe item);
@@ -80,4 +83,5 @@ public interface IUnit {
    * If the other location is out of this unit's movement range, the unit doesn't move.
    */
   void moveTo(Location targetLocation);
+  
 }

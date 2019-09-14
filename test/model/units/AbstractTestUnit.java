@@ -2,9 +2,13 @@ package model.units;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import model.items.*;
+
 import model.map.Field;
 import model.map.Location;
 import org.junit.jupiter.api.BeforeEach;
@@ -103,7 +107,6 @@ public abstract class AbstractTestUnit implements ITestUnit {
    * @param item
    *     to be equipped
    */
-  @Override
   public void checkEquippedItem(IEquipableItem item) {
     assertNull(getTestUnit().getEquippedItem());
     getTestUnit().equipItem(item);
@@ -119,13 +122,13 @@ public abstract class AbstractTestUnit implements ITestUnit {
    * new owner
    */
 
-  @Override
   public void checkExchangeItem(IEquipableItem item,IUnit unit) {
-    assertNull(getTestUnit().getEquippedItem());
+    assertTrue(unit.getItems().isEmpty());
+    getTestUnit().giveItem(item);
     getTestUnit().exchangeItem(item,unit);
-    assertNull(unit.getEquippedItem());
-  }
+    assertFalse(unit.getItems().isEmpty());
 
+  }
   /**
    * @return the test axe
    */
@@ -182,6 +185,43 @@ public abstract class AbstractTestUnit implements ITestUnit {
     checkEquippedItem(getBow());
   }
 
+  @Override
+  @Test
+  public void exchangeBowTest() {
+    checkExchangeItem(getBow(),getTestUnit());
+  }
+
+  @Override
+  @Test
+  public void exchangeAxeTest() {
+    checkExchangeItem(getAxe(),getTestUnit());
+  }
+  @Override
+  @Test
+  public void exchangeSpearTest() {
+    checkExchangeItem(getSpear(),getTestUnit());
+  }
+
+  @Override
+  @Test
+  public void exchangeStaffTest() {
+    checkExchangeItem(getStaff(),getTestUnit());
+  }
+
+  @Override
+  @Test
+  public void exchangeSwordTest() {
+    checkExchangeItem(getSword(),getTestUnit());
+  }
+
+  /*@Override
+  @Test
+  public void exchangeMagicbookTest() {
+    checkExchangeItem(getBow(),getTestUnit());
+  }*/
+
+
+
   /**
    * @return the test bow
    */
@@ -189,6 +229,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
   public Bow getBow() {
     return bow;
   }
+
 
   /**
    * Checks if the unit moves correctly
@@ -205,6 +246,19 @@ public abstract class AbstractTestUnit implements ITestUnit {
     getField().getCell(0, 1).setUnit(getTargetAlpaca());
     getTestUnit().moveTo(getField().getCell(0, 1));
     assertEquals(new Location(0, 2), getTestUnit().getLocation());
+  }
+
+  /**
+   * @return the item being tested
+   */
+
+
+  public void checkWrong1ExchangeItem(IEquipableItem item,IUnit unit) {
+    assertTrue(getTestUnit().getItems().isEmpty());
+    getTestUnit().moveTo(getField().getCell(2, 2));
+    getTestUnit().exchangeItem(item,unit);
+    assertTrue(getTestUnit().getItems().isEmpty());
+
   }
 
   /**

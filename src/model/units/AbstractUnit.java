@@ -47,6 +47,8 @@ public abstract class AbstractUnit implements IUnit {
     this.items.addAll(Arrays.asList(items).subList(0, min(maxItems, items.length)));
   }
 
+
+
   @Override
   public int getCurrentHitPoints() {
     return currentHitPoints;
@@ -65,9 +67,25 @@ public abstract class AbstractUnit implements IUnit {
 
 
   @Override
-  public void setEquippedItem(final IEquipableItem item) {
-    this.equippedItem = item;
+  public void setEquippedItem(final IEquipableItem item) { this.equippedItem = item;    }
+
+
+  @Override
+  public boolean giveItem(final IEquipableItem item) {
+
+      if (this.items.add(item)){
+
+          //System.out.print(this.items);
+          return true;
+      }
+      return false;
   }
+  @Override
+  public void deleteItem(final IEquipableItem item) {
+    this.items.remove(item);
+  }
+
+
   @Override
   public void setEquippedBow(final Bow item) {
     this.equippedItem = item;
@@ -109,4 +127,6 @@ public abstract class AbstractUnit implements IUnit {
       setLocation(targetLocation);
     }
   }
+
+
 }

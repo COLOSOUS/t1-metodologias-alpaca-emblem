@@ -20,6 +20,18 @@ public interface IEquipableItem {
    *     the unit that will be quipped with the item
    */
   void equipTo(IUnit unit);
+  /**
+   * Give this item to a unit.
+   *
+   * @param unit
+   *     the unit that has the item
+   */
+  void giveTo(IUnit unit);
+  void delete(IUnit unit);
+
+
+
+
 
   /**
    * @return the unit that has currently equipped this item
@@ -55,4 +67,6 @@ public interface IEquipableItem {
   void equipAxeTo(Fighter fighter);
 
   void equipStaffTo(Cleric cleric);
+
+
 }

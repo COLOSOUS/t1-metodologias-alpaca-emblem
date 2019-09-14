@@ -40,6 +40,21 @@ public abstract class AbstractItem implements IEquipableItem {
     unit.setEquippedItem(this);
     owner = unit;
   }
+  public void giveTo(final IUnit unit) {
+
+
+    if(unit.giveItem(this)){
+
+
+
+      owner = unit;
+    }
+
+  }
+  public void delete(final IUnit unit) {
+    unit.deleteItem(this);
+  }
+
   @Override
   public void equipBowTo(final Archer unit){  };
   @Override

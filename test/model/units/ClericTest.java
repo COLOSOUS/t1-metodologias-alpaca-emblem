@@ -1,9 +1,8 @@
 package model.units;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Ignacio Slater Muñoz
@@ -34,5 +33,25 @@ public class ClericTest extends AbstractTestUnit {
     assertNull(cleric.getEquippedItem());
     cleric.equipItem(staff);
     assertEquals(staff, cleric.getEquippedItem());
+  }
+  @Test
+
+  @Override
+
+  public void exchangeStaffTest() {
+    setTestUnit();
+    Cleric unit1 =cleric;
+    assertTrue(unit1.getItems().isEmpty());
+    unit1.items.add(staff);
+    setTargetAlpaca();
+    IUnit unit2 =getTargetAlpaca();
+    assertTrue(unit2.getItems().isEmpty());
+    //System.out.print(unit1.items);
+    unit1.exchangeItem(staff,unit2);
+    //System.out.print(unit1.items);
+    assertTrue(unit1.getItems().isEmpty());
+
+    assertFalse(unit2.getItems().isEmpty());
+
   }
 }

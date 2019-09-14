@@ -65,7 +65,7 @@ public interface ITestUnit {
    */
 
 
-  void checkExchangeItem(IEquipableItem item,IUnit unit);
+  //void checkExchangeItem(IEquipableItem item,IUnit unit);
 
   /**
    * @return the test axe
@@ -98,6 +98,17 @@ public interface ITestUnit {
 
   @Test
   void equipBowTest();
+
+  @Test
+  void exchangeAxeTest();
+  @Test
+  void exchangeSpearTest();
+  @Test
+  void exchangeStaffTest();
+  @Test
+  void exchangeSwordTest();
+  @Test
+  void exchangeBowTest();
 
   /**
    * @return the test bow

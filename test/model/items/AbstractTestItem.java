@@ -111,6 +111,16 @@ public abstract class AbstractTestItem {
     getTestItem().equipTo(unit);
     assertEquals(unit, getTestItem().getOwner());
   }
+  @Test
+  public void giveToTest() {
+    assertNull(getTestItem().getOwner());
+    IUnit unit = getTestUnit();
+    getTestItem().giveTo(unit);
+    assertEquals(unit, getTestItem().getOwner());
+  }
+
+
+
 
   /**
    * @return a unit that can equip the item being tested

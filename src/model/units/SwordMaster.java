@@ -30,7 +30,8 @@ public class SwordMaster extends AbstractUnit {
   }
   @Override
   public void exchangeItem(IEquipableItem item, IUnit unit) {
-    item.equipTo(unit);
+    item.giveTo(unit);
+    item.delete(this);
 
   }
 }
