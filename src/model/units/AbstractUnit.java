@@ -27,6 +27,7 @@ public abstract class AbstractUnit implements IUnit {
   protected IEquipableItem equippedItem;
   private Location location;
 
+
   /**
    * Creates a new Unit.
    *
@@ -70,10 +71,20 @@ public abstract class AbstractUnit implements IUnit {
     return equippedItem;
   }
 
+  @Override
+  public boolean checkEquippedItem() {
+    if (this.equippedItem!=null){
+      System.out.println("si tiene");
+      return true;
+    }
+    System.out.println("no tiene");
+    return false;
+  }
+
 
 
   @Override
-  public void setEquippedItem(final IEquipableItem item) { this.equippedItem = item;    }
+  public void setEquippedItem(IEquipableItem item) { this.equippedItem = item;    }
 
 
   @Override
@@ -154,6 +165,7 @@ public abstract class AbstractUnit implements IUnit {
   @Override
   public void receiveAttack(IEquipableItem item) {
 
+
     this.currentHitPoints -= item.getPower();
 
   }
@@ -167,7 +179,9 @@ public abstract class AbstractUnit implements IUnit {
   @Override
   public void attackto(IUnit other) {
     this.attack(other);
-    other.attack(this);
+    if (other.getEquippedItem()!=null && !(other.getEquippedItem() instanceof Staff) && !(other.getEquippedItem() instanceof body)){
+      other.attack(this);
+    }
   }
 
 

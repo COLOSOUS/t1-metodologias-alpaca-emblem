@@ -105,6 +105,7 @@ public interface IUnit {
   void receiveAttack(IEquipableItem item);
   void receiveWeaknessAttack(IEquipableItem item);
   void receiveResistantAttack(IEquipableItem item);
+  boolean checkEquippedItem();
 
 
 

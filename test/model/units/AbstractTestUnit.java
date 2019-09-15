@@ -14,8 +14,6 @@ import model.map.Location;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.function.BooleanSupplier;
-
 /**
  * @author Ignacio Slater Muñoz
  * @since 1.0
@@ -29,6 +27,12 @@ public abstract class AbstractTestUnit implements ITestUnit {
   protected Sword sword;
   protected Staff staff;
   protected Spear spear;
+  protected Fighter fighter;
+  protected Archer archer;
+  protected Cleric cleric;
+  protected Hero hero;
+  protected SwordMaster swordmaster;
+
 
   @Override
   public void setTargetAlpaca() {
@@ -44,6 +48,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
     setTestUnit();
     setTargetAlpaca();
     setWeapons();
+    setUnits();
   }
 
   /**
@@ -74,6 +79,15 @@ public abstract class AbstractTestUnit implements ITestUnit {
     this.staff = new Staff("Staff", 10, 1, 2);
     this.bow = new Bow("Bow", 10, 2, 3);
   }
+  @Override
+  public void setUnits() {
+    this.fighter = new Fighter(50, 2, field.getCell(1, 0));
+    this.archer = new Archer(50, 2, field.getCell(1, 0));
+    this.swordmaster = new SwordMaster(50, 2, field.getCell(1, 0));
+    this.cleric = new Cleric(50, 2, field.getCell(1, 0));
+    this.hero= new Hero(50, 2, field.getCell(1, 0));
+  }
+
 
   /**
    * Checks that the constructor works properly.
@@ -111,13 +125,11 @@ public abstract class AbstractTestUnit implements ITestUnit {
    */
   public void checkEquippedItem(IEquipableItem item) {
     assertNull(getTestUnit().getEquippedItem());
+
     getTestUnit().equipItem(item);
-    assertNotNull(getTestUnit().getEquippedItem());
+
+    assertNull(getTestUnit().getEquippedItem());
   }
-
-  @Test
-  public void attackTest(IUni)
-
 
   /**
    * Tries to equip a weapon to  new unit
@@ -135,6 +147,42 @@ public abstract class AbstractTestUnit implements ITestUnit {
     assertFalse(unit.getItems().isEmpty());
 
   }
+
+  public void attackTest(IUnit unit,IUnit other,IEquipableItem item){
+    unit.equipItem(item);
+    unit.attackto(other);
+  }
+  @Override
+  @Test
+
+  public void attackSwordmasterTest(){
+    attackTest(getSwordMaster(),getTestUnit(),getSword());
+  }
+  @Override
+  @Test
+  public void attackArcherTest(){
+    attackTest(getArcher(),getTestUnit(),getBow());
+  }
+  @Override
+  @Test
+  public void attackClericTest(){
+    attackTest(getCleric(),getTestUnit(),getStaff());
+  }
+  @Override
+  @Test
+  public void attackFighterTest(){
+    attackTest(getFighter(),getTestUnit(),getAxe());
+  }
+  @Override
+  @Test
+  public void attackHeroTest(){
+    attackTest(getHero(),getTestUnit(),getSpear());
+  }
+
+
+
+
+
   /**
    * @return the test axe
    */
@@ -156,6 +204,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
   public Sword getSword() {
     return sword;
   }
+
 
   @Override
   @Test
@@ -282,4 +331,28 @@ public abstract class AbstractTestUnit implements ITestUnit {
   public Alpaca getTargetAlpaca() {
     return targetAlpaca;
   }
+
+  @Override
+  public Archer getArcher() {
+    return archer;
+  }
+  @Override
+  public SwordMaster getSwordMaster() {
+    return swordmaster;
+  }
+  @Override
+  public Hero getHero() {
+    return hero;
+  }
+
+  @Override
+  public Cleric getCleric() {
+    return cleric;
+  }
+  @Override
+  public Fighter getFighter() {
+    return fighter;
+  }
+
+
 }

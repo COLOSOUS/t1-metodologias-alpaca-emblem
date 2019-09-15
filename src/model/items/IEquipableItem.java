@@ -151,4 +151,6 @@ public interface IEquipableItem {
   void receiveNormalAttack(IEquipableItem item);
   // getbody();
 
+  void setOwner(IUnit unit);
+
 }

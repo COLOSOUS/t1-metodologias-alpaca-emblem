@@ -50,8 +50,30 @@ public class Hero extends AbstractUnit {
   @Override
 
   public void attack(IUnit other){
-    IEquipableItem item = other.getEquippedItem();
-    item.receiveSpearAttack((Spear) this.equippedItem);
+    if (other.checkEquippedItem()) {
+
+
+      IEquipableItem item = other.getEquippedItem();
+      item.receiveSpearAttack((Spear) this.equippedItem);
+
+    }
+    else {
+      IEquipableItem myitem=this.equippedItem;
+
+      other.setEquippedItem(getbody());
+
+      this.equippedItem=myitem;
+      myitem.setOwner(this);
+
+      IEquipableItem item2 = other.getEquippedItem();
+
+      item2.setOwner(other);
+
+      item2.receiveSpearAttack((Spear) this.equippedItem);
+
+    }
+
   }
+
 
 }

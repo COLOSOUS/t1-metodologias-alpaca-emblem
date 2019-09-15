@@ -88,6 +88,7 @@ public interface ITestUnit {
    */
   Spear getSpear();
 
+
   @Test
   void equipStaffTest();
 
@@ -95,6 +96,13 @@ public interface ITestUnit {
    * @return the test staff
    */
   Staff getStaff();
+
+  Fighter getFighter();
+  Cleric getCleric();
+  Hero getHero();
+  SwordMaster getSwordMaster();
+  Archer getArcher();
+
 
   @Test
   void equipBowTest();
@@ -109,6 +117,20 @@ public interface ITestUnit {
   void exchangeSwordTest();
   @Test
   void exchangeBowTest();
+  @Test
+
+  void attackFighterTest();
+  @Test
+  void attackHeroTest();
+  @Test
+  void attackClericTest();
+  @Test
+  void attackArcherTest();
+  @Test
+  void attackSwordmasterTest();
+
+  @Test
+  void setUnits();
 
   /**
    * @return the test bow

@@ -1,5 +1,7 @@
 package model.items;
 
+import model.units.IUnit;
+
 public class body extends AbstractItem{
 
     public body(final String name, final int power, final int minRange, final int maxRange) {
@@ -7,8 +9,38 @@ public class body extends AbstractItem{
     }
 
 
-    public IEquipableItem getbody() {
-        AbstractItem body = new body("body", 0, 1, 1);
+    public IEquipableItem getsdsbody() {
+        IEquipableItem body = new body("body", 0, 1, 1);
+        body.equipTo((IUnit) this);
         return body;
     }
+
+    @Override
+    public void receiveBowAttack(Bow item){
+
+        this.getOwner().receiveAttack(item);
+
+
+    }
+    @Override
+    public void receiveAxeAttack(Axe item){
+        this.getOwner().receiveAttack(item);
+    }
+    @Override
+    public void receiveSpearAttack(Spear item){
+        this.getOwner().receiveAttack(item);
+    }
+
+
+
+    @Override
+    public void receiveStaffAttack(Staff item){
+        this.getOwner().receiveHeal(item);
+    }
+    @Override
+    public void receiveSwordAttack(Sword  item){
+        this.getOwner().receiveAttack(item);
+    }
+
+
 }

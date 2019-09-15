@@ -61,8 +61,34 @@ public class Archer extends AbstractUnit {
   }
   @Override
   public void attack(IUnit other){
-      IEquipableItem item = other.getEquippedItem();
-      item.receiveBowAttack((Bow) this.equippedItem);
+    //
+
+
+
+      if (other.checkEquippedItem()) {
+
+
+        IEquipableItem item = other.getEquippedItem();
+        item.receiveBowAttack((Bow) this.equippedItem);
+
+      }
+      else {
+        IEquipableItem myitem=this.equippedItem;
+
+        other.setEquippedItem(getbody());
+
+        this.equippedItem=myitem;
+        myitem.setOwner(this);
+        System.out.println(myitem);
+
+        IEquipableItem item2 = other.getEquippedItem();
+
+        item2.setOwner(other);
+
+        item2.receiveBowAttack((Bow) this.equippedItem);
+
+      }
+
     }
 
 
