@@ -29,6 +29,16 @@ public interface ITestUnit {
    * Creates a set of testing weapons
    */
   void setWeapons();
+
+  @Test
+  void attackSorcecer1Test();
+
+  @Test
+  void attackSorcecer2Test();
+
+  @Test
+  void attackSorcecer3Test();
+
   /**
    * Creates a new set of testing weapons
    */
@@ -51,6 +61,15 @@ public interface ITestUnit {
   @Test
   void equipAxeTest();
 
+  @Test
+  void equipMagicBookAnimaTest();
+
+  @Test
+  void equipMagicBookDarknessTest();
+
+  @Test
+  void equipMagicBookLightTest();
+
   /**
    * Tries to equip a weapon to the alpaca and verifies that it was not equipped
    *
@@ -58,6 +77,12 @@ public interface ITestUnit {
    *     to be equipped
    */
   void checkEquippedItem(IEquipableItem item);
+
+  @Test
+  void attackSorcecer1Test2();
+
+  @Test
+  void attackSorcecer2Test2();
 
   /**
    * Tries to equip a weapon to new unit
@@ -71,10 +96,19 @@ public interface ITestUnit {
 
   //void checkExchangeItem(IEquipableItem item,IUnit unit);
 
+  @Test
+  void attackSorcecer3Test2();
+
   /**
    * @return the test axe
    */
   Axe getAxe();
+
+  MagicBookAnima getMagicBookAnima();
+
+  MagicBookDarkness getMagicBookDarknees();
+
+  MagicBookLight getMagicBookLight();
 
   @Test
   void equipSwordTest();
@@ -102,7 +136,10 @@ public interface ITestUnit {
   Staff getStaff();
 
   Fighter getFighter();
-  Cleric getCleric();
+
+    Sorcerer getSorcecer();
+
+    Cleric getCleric();
   Hero getHero();
   SwordMaster getSwordMaster();
   Archer getArcher();
@@ -149,6 +186,15 @@ public interface ITestUnit {
   void setUnits();
   @Test
   void setUnits2();
+
+  @Test
+  void exchangeMagicBookAnimaTest();
+
+  @Test
+  void exchangeMagicBookDarknessTest();
+
+  @Test
+  void exchangeMagicBookLightTest();
 
   /**
    * @return the test bow

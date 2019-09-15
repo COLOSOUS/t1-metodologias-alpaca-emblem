@@ -74,10 +74,10 @@ public abstract class AbstractUnit implements IUnit {
   @Override
   public boolean checkEquippedItem() {
     if (this.equippedItem!=null){
-      System.out.println("si tiene");
+
       return true;
     }
-    System.out.println("no tiene");
+
     return false;
   }
 
@@ -92,7 +92,7 @@ public abstract class AbstractUnit implements IUnit {
 
       if (this.items.add(item)){
 
-          //System.out.print(this.items);
+
           return true;
       }
       return false;
@@ -185,19 +185,18 @@ public abstract class AbstractUnit implements IUnit {
     Location loc1=this.getLocation();
     Location loc2=other.getLocation();
     double distance= loc1.distanceTo(loc2);
-    //System.out.println(loc1);
-    //System.out.println(loc2);
-    System.out.println(distance);
-    //distance<=max && distance>=min
+
+    
+
 
     if (distance<=max && distance>=min) {
-      //System.out.println("ataca");
+
       this.attack(other);
 
       }
 
       if (other.getEquippedItem() != null && !(other.getEquippedItem() instanceof Staff) && !(other.getEquippedItem() instanceof body)) {
-        System.out.println("contrataca");
+
         other.attack(this);
       }
     }
