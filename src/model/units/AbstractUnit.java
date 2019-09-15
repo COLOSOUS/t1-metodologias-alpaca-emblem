@@ -22,7 +22,7 @@ import model.map.Location;
 public abstract class AbstractUnit implements IUnit {
 
   protected final List<IEquipableItem> items = new ArrayList<>();
-  private final int currentHitPoints;
+  private  int currentHitPoints;
   private final int movement;
   protected IEquipableItem equippedItem;
   private Location location;
@@ -45,6 +45,12 @@ public abstract class AbstractUnit implements IUnit {
     this.movement = movement;
     this.location = location;
     this.items.addAll(Arrays.asList(items).subList(0, min(maxItems, items.length)));
+  }
+
+  public IEquipableItem getbody() {
+    IEquipableItem body = new body("body", 0, 1, 1);
+    body.equipTo(this);
+    return body;
   }
 
 
@@ -127,6 +133,43 @@ public abstract class AbstractUnit implements IUnit {
       setLocation(targetLocation);
     }
   }
+
+
+
+
+
+  @Override
+  public void receiveWeaknessAttack(IEquipableItem item) {
+
+    this.currentHitPoints -= item.getPower()*1.5;
+
+  }
+  @Override
+  public void receiveResistantAttack(IEquipableItem item) {
+
+    this.currentHitPoints -= item.getPower()-20;
+
+  }
+
+  @Override
+  public void receiveAttack(IEquipableItem item) {
+
+    this.currentHitPoints -= item.getPower();
+
+  }
+  @Override
+  public void receiveHeal(IEquipableItem item) {
+
+    this.currentHitPoints += item.getPower();
+
+  }
+
+  @Override
+  public void attackto(IUnit other) {
+    this.attack(other);
+    other.attack(this);
+  }
+
 
 
 }

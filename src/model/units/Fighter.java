@@ -11,6 +11,7 @@ import model.map.Location;
  * @author Ignacio Slater Muñoz
  * @since 1.0
  */
+
 public class Fighter extends AbstractUnit {
 
   public Fighter(final int hitPoints, final int movement, final Location location,
@@ -36,4 +37,11 @@ public class Fighter extends AbstractUnit {
     }
 
   }
+  @Override
+
+  public void attack(IUnit other){
+    IEquipableItem item = other.getEquippedItem();
+    item.receiveAxeAttack((Axe) this.equippedItem);
+  }
+
 }

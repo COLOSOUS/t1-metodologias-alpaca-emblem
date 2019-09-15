@@ -14,6 +14,8 @@ import model.map.Location;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.function.BooleanSupplier;
+
 /**
  * @author Ignacio Slater Muñoz
  * @since 1.0
@@ -110,8 +112,12 @@ public abstract class AbstractTestUnit implements ITestUnit {
   public void checkEquippedItem(IEquipableItem item) {
     assertNull(getTestUnit().getEquippedItem());
     getTestUnit().equipItem(item);
-    assertNull(getTestUnit().getEquippedItem());
+    assertNotNull(getTestUnit().getEquippedItem());
   }
+
+  @Test
+  public void attackTest(IUni)
+
 
   /**
    * Tries to equip a weapon to  new unit

@@ -83,5 +83,29 @@ public interface IUnit {
    * If the other location is out of this unit's movement range, the unit doesn't move.
    */
   void moveTo(Location targetLocation);
-  
+  /**
+
+   * Attacks another Pokémon.
+
+   *
+
+   * @param other
+
+   *     Target of the attack.
+
+   */
+
+
+  void attack(IUnit other);
+  void attackto(IUnit other);
+
+
+  void receiveHeal(IEquipableItem item);
+
+  void receiveAttack(IEquipableItem item);
+  void receiveWeaknessAttack(IEquipableItem item);
+  void receiveResistantAttack(IEquipableItem item);
+
+
+
 }

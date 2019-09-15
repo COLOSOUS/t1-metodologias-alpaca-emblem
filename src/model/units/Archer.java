@@ -1,6 +1,8 @@
 package model.units;
 
+import model.items.AbstractItem;
 import model.items.Bow;
+import model.items.body;
 import model.items.IEquipableItem;
 import model.map.Location;
 
@@ -49,6 +51,7 @@ public class Archer extends AbstractUnit {
   @Override
   public void exchangeItem(IEquipableItem item, IUnit unit) {
 
+
     if(this.getLocation().isNeighbour(unit.getLocation())){
 
       item.giveTo(unit);
@@ -56,4 +59,22 @@ public class Archer extends AbstractUnit {
     }
 
   }
+  @Override
+  public void attack(IUnit other){
+      IEquipableItem item = other.getEquippedItem();
+      item.receiveBowAttack((Bow) this.equippedItem);
+    }
+
+
+
 }
+
+
+
+
+
+
+
+
+
+

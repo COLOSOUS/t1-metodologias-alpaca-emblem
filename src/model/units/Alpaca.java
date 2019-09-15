@@ -47,4 +47,9 @@ public class Alpaca extends AbstractUnit {
 
   }
 
+
+  @Override
+  public void attack(IUnit other) {
+  }
+
 }

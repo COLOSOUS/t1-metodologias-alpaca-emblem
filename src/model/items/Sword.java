@@ -1,5 +1,6 @@
 package model.items;
 
+import model.units.IUnit;
 import model.units.SwordMaster;
 
 /**
@@ -30,5 +31,26 @@ public class Sword extends AbstractItem {
   @Override
   public void equipSwordTo(SwordMaster unit) {
     unit.setEquippedSword(this);
+  }
+
+  @Override
+  public void receiveBowAttack(Bow item){
+    this.receiveNormalAttack(this);
+  }
+  @Override
+  public void receiveAxeAttack(Axe item){
+    this.receiveNormalAttack(this);
+  }
+  @Override
+  public void receiveSpearAttack(Spear item){
+    this.receiveNormalAttack(this);
+  }
+  @Override
+  public void receiveStaffAttack(Staff item){
+    this.receiveNormalAttack(this);
+  }
+  @Override
+  public void receiveSwordAttack(Sword  item){
+    this.receiveNormalAttack(this);
   }
 }

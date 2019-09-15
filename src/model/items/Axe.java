@@ -1,6 +1,7 @@
 package model.items;
 
 import model.units.Fighter;
+import model.units.IUnit;
 
 /**
  * This class represents an Axe.
@@ -31,4 +32,30 @@ public class Axe extends AbstractItem {
   public void equipAxeTo(Fighter unit) {
     unit.setEquippedAxe(this);
   }
+  @Override
+  public void receiveBowAttack(Bow item){
+    this.receiveNormalAttack(this);
+  }
+  @Override
+  public void receiveAxeAttack(Axe item){
+    this.receiveNormalAttack(this);
+  }
+  @Override
+  public void receiveSpearAttack(Spear item){
+    this.receiveNormalAttack(this);
+  }
+
+
+
+  @Override
+  public void receiveStaffAttack(Staff item){
+    this.receiveNormalAttack(this);
+  }
+  @Override
+  public void receiveSwordAttack(Sword  item){
+    this.receiveNormalAttack(this);
+  }
+
+
+
 }

@@ -1,6 +1,7 @@
 package model.items;
 
 import model.units.Cleric;
+import model.units.IUnit;
 
 /**
  * This class represents a <i>Staff</i> type item.
@@ -29,5 +30,25 @@ public class Staff extends AbstractItem {
   }
   @Override
   public void equipStaffTo(Cleric unit) {    unit.setEquippedStaff(this);
+  }
+  @Override
+  public void receiveBowAttack(Bow item){
+    this.receiveNormalAttack(this);
+  }
+  @Override
+  public void receiveAxeAttack(Axe item){
+    this.receiveNormalAttack(this);
+  }
+  @Override
+  public void receiveSpearAttack(Spear item){
+    this.receiveNormalAttack(this);
+  }
+  @Override
+  public void receiveStaffAttack(Staff item){
+    this.receiveNormalAttack(this);
+  }
+  @Override
+  public void receiveSwordAttack(Sword  item){
+    this.receiveNormalAttack(this);
   }
 }

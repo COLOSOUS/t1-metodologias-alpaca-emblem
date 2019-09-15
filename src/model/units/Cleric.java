@@ -44,4 +44,13 @@ public class Cleric extends AbstractUnit {
     }
 
   }
+  @Override
+
+  public void attack(IUnit other){
+    IEquipableItem item = other.getEquippedItem();
+    item.receiveStaffAttack((Staff) this.equippedItem);
+  }
+
+
+
 }

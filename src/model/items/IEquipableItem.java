@@ -69,4 +69,86 @@ public interface IEquipableItem {
   void equipStaffTo(Cleric cleric);
 
 
+  /**
+
+   * Receives damage from a item.
+
+   *
+
+   * @param item
+
+   *     Received attack.
+
+   */
+
+  void receiveAxeAttack(Axe item);
+
+  void receiveStaffAttack(Staff item);
+
+  void receiveSwordAttack(Sword item);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /**
+
+   * Receives damage from a item.
+
+   *
+
+   * @param item
+
+   *     Received attack.
+
+   */
+
+  void receiveBowAttack(Bow item);
+
+
+
+  /**
+
+   * Receives damage from a item.
+
+   *
+
+   * @param item
+
+   *     Received attack.
+
+   */
+
+  void receiveSpearAttack(Spear item);
+
+
+
+  /**
+
+   * Receives damage from a item.
+
+   *
+
+   * @param item
+
+   *     Received attack.
+
+   */
+
+
+
+  void receiveNormalAttack(IEquipableItem item);
+  // getbody();
+
 }

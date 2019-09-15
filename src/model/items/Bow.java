@@ -1,6 +1,7 @@
 package model.items;
 
 import model.units.Archer;
+import model.units.IUnit;
 
 /**
  * @author Ignacio Slater Muñoz
@@ -32,5 +33,34 @@ public class Bow extends AbstractItem {
 
   public void equipBowTo(Archer unit) {
     unit.setEquippedBow(this);
+  }
+
+
+
+
+
+  @Override
+  public void receiveBowAttack(Bow item){
+    this.getOwner().receiveAttack(item);
+
+}
+  @Override
+  public void receiveAxeAttack(Axe item){
+    this.getOwner().receiveAttack(item);
+  }
+  @Override
+  public void receiveSpearAttack(Spear item){
+    this.getOwner().receiveAttack(item);
+  }
+
+
+
+  @Override
+  public void receiveStaffAttack(Staff item){
+    this.getOwner().receiveHeal(item);
+  }
+  @Override
+  public void receiveSwordAttack(Sword  item){
+    this.getOwner().receiveAttack(item);
   }
 }
