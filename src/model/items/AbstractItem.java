@@ -85,9 +85,12 @@ public abstract class AbstractItem implements IEquipableItem {
 
   @Override
   public void equipSwordTo(final SwordMaster unit) {
-  }
+  }  ;
 
-  ;
+  @Override
+  public void equipMagicBookTo(final Sorcerer unit) {
+
+  };
 
 
   @Override
@@ -146,8 +149,7 @@ public abstract class AbstractItem implements IEquipableItem {
 
   }
   @Override
-  public void receiveNormalAttack(IEquipableItem item) {
-
+  public void receiveMagicBookAttack(MagicBook item) {
 
     this.getOwner().receiveAttack(item);
 

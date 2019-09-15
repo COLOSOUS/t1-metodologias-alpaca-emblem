@@ -61,6 +61,7 @@ public interface IUnit {
   void setEquippedAxe(final Axe item);
   void setEquippedSpear(final Spear item);
   void setEquippedSword(final Sword item);
+  void setEquippedMagicBook(final MagicBook item);
 
   /**
    * @return the current location of the unit

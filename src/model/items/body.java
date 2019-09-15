@@ -33,12 +33,27 @@ public class body extends AbstractItem{
 
 
 
+
+
+
     @Override
     public void receiveStaffAttack(Staff item){
         this.getOwner().receiveHeal(item);
     }
     @Override
     public void receiveSwordAttack(Sword  item){
+        this.getOwner().receiveAttack(item);
+    }
+
+    public void receiveMagicBookAttack(MagicBookDarkness item){
+        this.getOwner().receiveAttack(item);
+    }
+
+    public void receiveMagicBookAttack(MagicBookLight item){
+        this.getOwner().receiveAttack(item);
+    }
+
+    public void receiveMagicBookAttack(MagicBookAnima item){
         this.getOwner().receiveAttack(item);
     }
 

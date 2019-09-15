@@ -61,10 +61,18 @@ public class Bow extends AbstractItem {
   }
   @Override
   public void receiveSwordAttack(Sword  item){
-    System.out.println(this.getOwner());
-    System.out.println(this);
-    System.out.println(item);
-
     this.getOwner().receiveAttack(item);
+  }
+
+  public void receiveMagicBookAttack(MagicBookDarkness item){
+    this.getOwner().receiveWeaknessAttack(item);
+  }
+
+  public void receiveMagicBookAttack(MagicBookLight item){
+    this.getOwner().receiveWeaknessAttack(item);
+  }
+
+  public void receiveMagicBookAttack(MagicBookAnima item){
+    this.getOwner().receiveWeaknessAttack(item);
   }
 }

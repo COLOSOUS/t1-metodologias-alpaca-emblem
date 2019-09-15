@@ -121,6 +121,8 @@ public abstract class AbstractUnit implements IUnit {
   }
   @Override
   public void setEquippedSword(final Sword item) { this.equippedItem = item; }
+  @Override
+  public void setEquippedMagicBook(final MagicBook item) { this.equippedItem = item; }
 
   @Override
   public Location getLocation() {

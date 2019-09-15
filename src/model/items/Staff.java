@@ -33,22 +33,34 @@ public class Staff extends AbstractItem {
   }
   @Override
   public void receiveBowAttack(Bow item){
-    this.receiveNormalAttack(this);
+    this.getOwner().receiveAttack(item);
   }
   @Override
   public void receiveAxeAttack(Axe item){
-    this.receiveNormalAttack(this);
+    this.getOwner().receiveAttack(item);
   }
   @Override
   public void receiveSpearAttack(Spear item){
-    this.receiveNormalAttack(this);
+    this.getOwner().receiveAttack(item);
   }
   @Override
   public void receiveStaffAttack(Staff item){
-    this.receiveNormalAttack(this);
+    this.getOwner().receiveHeal(item);
   }
   @Override
   public void receiveSwordAttack(Sword  item){
-    this.receiveNormalAttack(this);
+    this.getOwner().receiveAttack(item);
+  }
+
+  public void receiveMagicBookAttack(MagicBookDarkness item){
+    this.getOwner().receiveWeaknessAttack(item);
+  }
+
+  public void receiveMagicBookAttack(MagicBookLight item){
+    this.getOwner().receiveWeaknessAttack(item);
+  }
+
+  public void receiveMagicBookAttack(MagicBookAnima item){
+    this.getOwner().receiveWeaknessAttack(item);
   }
 }

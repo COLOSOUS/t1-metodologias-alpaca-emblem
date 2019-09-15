@@ -67,6 +67,7 @@ public interface IEquipableItem {
   void equipAxeTo(Fighter fighter);
 
   void equipStaffTo(Cleric cleric);
+  void equipMagicBookTo(Sorcerer unit);
 
 
   /**
@@ -86,6 +87,7 @@ public interface IEquipableItem {
   void receiveStaffAttack(Staff item);
 
   void receiveSwordAttack(Sword item);
+  void receiveMagicBookAttack(MagicBook equippedItem);
 
 
 
@@ -148,9 +150,17 @@ public interface IEquipableItem {
 
 
 
-  void receiveNormalAttack(IEquipableItem item);
-  // getbody();
+
 
   void setOwner(IUnit unit);
+
+
+
+
+
+
+
+
+
 
 }
