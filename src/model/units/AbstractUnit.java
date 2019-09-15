@@ -178,12 +178,29 @@ public abstract class AbstractUnit implements IUnit {
 
   @Override
   public void attackto(IUnit other) {
-    this.attack(other);
-    if (other.getEquippedItem()!=null && !(other.getEquippedItem() instanceof Staff) && !(other.getEquippedItem() instanceof body)){
-      other.attack(this);
+    int min=this.equippedItem.getMinRange();
+    int max=this.equippedItem.getMaxRange();
+    Location loc1=this.getLocation();
+    Location loc2=other.getLocation();
+    double distance= loc1.distanceTo(loc2);
+    //System.out.println(loc1);
+    //System.out.println(loc2);
+    System.out.println(distance);
+    //distance<=max && distance>=min
+
+    if (distance<=max && distance>=min) {
+      //System.out.println("ataca");
+      this.attack(other);
+
+      }
+
+      if (other.getEquippedItem() != null && !(other.getEquippedItem() instanceof Staff) && !(other.getEquippedItem() instanceof body)) {
+        System.out.println("contrataca");
+        other.attack(this);
+      }
     }
   }
 
 
 
-}
+

@@ -48,15 +48,20 @@ public class SwordMaster extends AbstractUnit {
 
       }
       else {
+
+
         IEquipableItem myitem=this.equippedItem;
 
         other.setEquippedItem(getbody());
 
         this.equippedItem=myitem;
         myitem.setOwner(this);
+
+
         IEquipableItem item2 = other.getEquippedItem();
 
         item2.setOwner(other);
+
 
         item2.receiveSwordAttack((Sword) this.equippedItem);
 

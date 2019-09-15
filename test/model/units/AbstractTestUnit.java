@@ -81,11 +81,11 @@ public abstract class AbstractTestUnit implements ITestUnit {
   }
   @Override
   public void setUnits() {
-    this.fighter = new Fighter(50, 2, field.getCell(1, 0));
-    this.archer = new Archer(50, 2, field.getCell(1, 0));
+    this.fighter = new Fighter(50, 2, field.getCell(1, 1));
+    this.archer = new Archer(50, 2, field.getCell(2, 2));
     this.swordmaster = new SwordMaster(50, 2, field.getCell(1, 0));
-    this.cleric = new Cleric(50, 2, field.getCell(1, 0));
-    this.hero= new Hero(50, 2, field.getCell(1, 0));
+    this.cleric = new Cleric(50, 2, field.getCell(2, 2));
+    this.hero= new Hero(50, 2, field.getCell(2,1));
   }
 
 
@@ -149,6 +149,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
   }
 
   public void attackTest(IUnit unit,IUnit other,IEquipableItem item){
+    item.setOwner(unit);
     unit.equipItem(item);
     unit.attackto(other);
   }
@@ -177,6 +178,84 @@ public abstract class AbstractTestUnit implements ITestUnit {
   @Test
   public void attackHeroTest(){
     attackTest(getHero(),getTestUnit(),getSpear());
+  }
+
+
+
+
+
+
+  @BeforeEach
+  public void setUp2() {
+    setField();
+    setTestUnit();
+    setTargetAlpaca();
+    setWeapons2();
+    setUnits2();
+  }
+
+  /**
+   * Creates a set of testing weapons
+   */
+  @Override
+  public void setWeapons2() {
+    this.axe = new Axe("Axe2", 5, 1, 2);
+    this.sword = new Sword("Sword2", 10, 1, 1);
+    this.spear = new Spear("Spear2", 12, 1, 2);
+    this.staff = new Staff("Staff2", 9, 1, 1);
+    this.bow = new Bow("Bow2", 4, 2, 3);
+  }
+
+
+
+  @Override
+  public void setUnits2() {
+    this.fighter = new Fighter(50, 2, field.getCell(1, 2),axe);
+    this.archer = new Archer(50, 2, field.getCell(1, 1),bow);
+    this.swordmaster = new SwordMaster(50, 2, field.getCell(1, 2),sword);
+    this.cleric = new Cleric(50, 2, field.getCell(2, 2),staff);
+    this.hero= new Hero(50, 2, field.getCell(2,1),spear);
+  }
+
+  public void attackTest2(IUnit unit,IUnit other,IEquipableItem item1,IEquipableItem item2){
+
+    unit.equipItem(item1);
+    other.equipItem(item2);
+
+    item1.setOwner(unit);
+    item2.setOwner(other);
+
+
+
+
+    unit.attackto(other);
+  }
+
+  @Override
+  @Test
+
+  public void attackSwordmasterTest2(){
+    attackTest2(getSwordMaster(),getArcher(),getSword(),getBow());
+  }
+  @Override
+  @Test
+  public void attackArcherTest2(){
+    attackTest2(getArcher(),getCleric(),getBow(),getStaff());
+  }
+  @Override
+  @Test
+  public void attackClericTest2(){
+    attackTest2(getCleric(),getFighter(),getStaff(),getAxe());
+  }
+  @Override
+  @Test
+  public void attackFighterTest2(){
+    attackTest2(getFighter(),getHero(),getAxe(),getSpear());
+  }
+  @Override
+  @Test
+  public void attackHeroTest2(){
+    attackTest2(getHero(),getSwordMaster(),getSpear(),getSword());
   }
 
 

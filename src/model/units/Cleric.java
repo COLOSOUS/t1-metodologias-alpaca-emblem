@@ -53,6 +53,7 @@ public class Cleric extends AbstractUnit {
       IEquipableItem item = other.getEquippedItem();
       item.receiveStaffAttack((Staff) this.equippedItem);
 
+
     }
     else {
       IEquipableItem myitem=this.equippedItem;

@@ -148,6 +148,7 @@ public abstract class AbstractItem implements IEquipableItem {
   @Override
   public void receiveNormalAttack(IEquipableItem item) {
 
+
     this.getOwner().receiveAttack(item);
 
   }

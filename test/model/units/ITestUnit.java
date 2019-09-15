@@ -29,6 +29,10 @@ public interface ITestUnit {
    * Creates a set of testing weapons
    */
   void setWeapons();
+  /**
+   * Creates a new set of testing weapons
+   */
+  void setWeapons2();
 
   /**
    * Checks that the constructor works properly.
@@ -130,7 +134,21 @@ public interface ITestUnit {
   void attackSwordmasterTest();
 
   @Test
+
+  void attackFighterTest2();
+  @Test
+  void attackHeroTest2();
+  @Test
+  void attackClericTest2();
+  @Test
+  void attackArcherTest2();
+  @Test
+  void attackSwordmasterTest2();
+
+  @Test
   void setUnits();
+  @Test
+  void setUnits2();
 
   /**
    * @return the test bow

@@ -61,7 +61,6 @@ public class Archer extends AbstractUnit {
   }
   @Override
   public void attack(IUnit other){
-    //
 
 
 
@@ -79,7 +78,7 @@ public class Archer extends AbstractUnit {
 
         this.equippedItem=myitem;
         myitem.setOwner(this);
-        System.out.println(myitem);
+
 
         IEquipableItem item2 = other.getEquippedItem();
 
