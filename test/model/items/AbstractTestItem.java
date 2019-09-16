@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Defines some common methods for all the items tests
  *
- * @author Ignacio Slater Muñoz
+ * @author Victor Durán
  * @since 1.0
  */
 public abstract class AbstractTestItem {
@@ -111,6 +111,9 @@ public abstract class AbstractTestItem {
     getTestItem().equipTo(unit);
     assertEquals(unit, getTestItem().getOwner());
   }
+  /**
+   * Checks that the Item can be correctly saved to a unit
+   */
   @Test
   public void giveToTest() {
     assertNull(getTestItem().getOwner());

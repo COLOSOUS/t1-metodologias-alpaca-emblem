@@ -3,10 +3,25 @@ package model.items;
 import model.units.IUnit;
 
 public class body extends AbstractItem{
+    /**
+     * Creates a new body (item use only to do double dispatch).
+     * <p>
+
+     *
+     * @param name
+     *     the name of the body
+     * @param power
+     *     the damage power null
+     * @param minRange
+     *     the minimum range null
+     * @param maxRange
+     *     the maximum range null
+     */
 
     public body(final String name, final int power, final int minRange, final int maxRange) {
         super(name, power, minRange, maxRange);
     }
+
 
 
     public IEquipableItem getsdsbody() {

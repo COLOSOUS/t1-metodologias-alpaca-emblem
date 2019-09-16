@@ -92,9 +92,7 @@ public interface ITestUnit {
    * @param unit
    * new owner
    */
-
-
-  //void checkExchangeItem(IEquipableItem item,IUnit unit);
+  void checkExchangeItem(IEquipableItem item,IUnit unit);
 
   @Test
   void attackSorcecer3Test2();
@@ -103,6 +101,8 @@ public interface ITestUnit {
    * @return the test axe
    */
   Axe getAxe();
+
+
 
   MagicBookAnima getMagicBookAnima();
 

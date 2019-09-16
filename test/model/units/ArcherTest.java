@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 /**
  * Test set for the Archer unit.
  *
- * @author Ignacio Slater Muñoz
+ * @author Victor Durán
  * @since 1.0
  */
 public class ArcherTest extends AbstractTestUnit {
@@ -43,6 +43,9 @@ public class ArcherTest extends AbstractTestUnit {
 
 
   }
+  /**
+   * Checks if the bow is exchange correctly to the unit
+   */
   @Test
 
   @Override

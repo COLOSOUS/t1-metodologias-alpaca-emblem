@@ -31,7 +31,7 @@ public class SorcecerTest extends AbstractTestUnit {
   }
 
   /**
-   * Checks if the bow is equipped correctly to the unit
+   * Checks if the magic book is equipped correctly to the unit
    */
   @Test
   @Override
@@ -42,6 +42,9 @@ public class SorcecerTest extends AbstractTestUnit {
 
 
   }
+  /**
+   * Checks if the magic book is exchange correctly to the unit
+   */
   @Test
 
   @Override
@@ -59,6 +62,9 @@ public class SorcecerTest extends AbstractTestUnit {
     assertFalse(unit2.getItems().isEmpty());
 
   }
+  /**
+   * Checks if the magic book is equipped correctly to the unit
+   */
   @Test
   @Override
   public void equipMagicBookDarknessTest() {
@@ -68,6 +74,9 @@ public class SorcecerTest extends AbstractTestUnit {
 
 
   }
+  /**
+   * Checks if the magic book is exchange correctly to the unit
+   */
   @Test
 
   @Override
@@ -85,6 +94,9 @@ public class SorcecerTest extends AbstractTestUnit {
     assertFalse(unit2.getItems().isEmpty());
 
   }
+  /**
+   * Checks if the magic book is equipped correctly to the unit
+   */
   @Test
   @Override
   public void equipMagicBookLightTest() {
@@ -94,6 +106,9 @@ public class SorcecerTest extends AbstractTestUnit {
 
 
   }
+  /**
+   * Checks if the magick book is exchange correctly to the unit
+   */
   @Test
 
   @Override

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author Ignacio Slater Muñoz
+ * @author Victor Durán
  */
 public class ClericTest extends AbstractTestUnit {
 
@@ -26,7 +26,9 @@ public class ClericTest extends AbstractTestUnit {
   public IUnit getTestUnit() {
     return cleric;
   }
-
+  /**
+   * Checks if the staff is equipped correctly to the unit
+   */
   @Test
   @Override
   public void equipStaffTest() {
@@ -34,6 +36,10 @@ public class ClericTest extends AbstractTestUnit {
     cleric.equipItem(staff);
     assertEquals(staff, cleric.getEquippedItem());
   }
+
+  /**
+   * Checks if the staff is exchange correctly to the unit
+   */
   @Test
 
   @Override
@@ -46,9 +52,9 @@ public class ClericTest extends AbstractTestUnit {
     setTargetAlpaca();
     IUnit unit2 =getTargetAlpaca();
     assertTrue(unit2.getItems().isEmpty());
-    //System.out.print(unit1.items);
+
     unit1.exchangeItem(staff,unit2);
-    //System.out.print(unit1.items);
+
     assertTrue(unit1.getItems().isEmpty());
 
     assertFalse(unit2.getItems().isEmpty());

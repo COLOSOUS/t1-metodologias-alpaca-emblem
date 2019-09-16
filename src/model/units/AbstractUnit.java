@@ -23,6 +23,7 @@ public abstract class AbstractUnit implements IUnit {
 
   protected final List<IEquipableItem> items = new ArrayList<>();
   private  int currentHitPoints;
+  private int maxPoints;
   private final int movement;
   protected IEquipableItem equippedItem;
   private Location location;
@@ -40,15 +41,16 @@ public abstract class AbstractUnit implements IUnit {
    * @param maxItems
    *     maximum amount of items this unit can carry
    */
-  protected AbstractUnit(final int hitPoints, final int movement,
+  protected AbstractUnit(int hitPoints, final int movement,
       final Location location, final int maxItems, final IEquipableItem... items) {
     this.currentHitPoints = hitPoints;
+    this.maxPoints =  hitPoints;
     this.movement = movement;
     this.location = location;
     this.items.addAll(Arrays.asList(items).subList(0, min(maxItems, items.length)));
   }
 
-  public IEquipableItem getbody() {
+  public IEquipableItem getbody() {//object to use DD
     IEquipableItem body = new body("body", 0, 1, 1);
     body.equipTo(this);
     return body;
@@ -174,7 +176,14 @@ public abstract class AbstractUnit implements IUnit {
   @Override
   public void receiveHeal(IEquipableItem item) {
 
-    this.currentHitPoints += item.getPower();
+    int a =this.currentHitPoints+item.getPower();
+    if (a>maxPoints) {//Protection with the overhealing
+      this.currentHitPoints=this.maxPoints;
+
+    }
+    else {
+      this.currentHitPoints += item.getPower();
+    }
 
   }
 
@@ -186,7 +195,7 @@ public abstract class AbstractUnit implements IUnit {
     Location loc2=other.getLocation();
     double distance= loc1.distanceTo(loc2);
 
-    
+
 
 
     if (distance<=max && distance>=min) {

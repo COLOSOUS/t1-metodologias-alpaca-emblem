@@ -15,7 +15,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author Ignacio Slater Muñoz
+ * @author Victor Durán
  * @since 1.0
  */
 public abstract class AbstractTestUnit implements ITestUnit {
@@ -87,6 +87,10 @@ public abstract class AbstractTestUnit implements ITestUnit {
     this.magickbookL = new MagicBookLight("BookL", 20, 1, 3);
   }
 
+  /**
+   * Sets up the units  to be tested
+   */
+
   @Override
   public void setUnits() {
     this.fighter = new Fighter(50, 2, field.getCell(1, 1));
@@ -125,13 +129,18 @@ public abstract class AbstractTestUnit implements ITestUnit {
     assertNull(getTestUnit().getEquippedItem());
     checkEquippedItem(getAxe());
   }
-
+  /**
+   * Checks if the magic book animais equipped correctly to the unit
+   */
   @Override
   @Test
   public void equipMagicBookAnimaTest() {
     assertNull(getTestUnit().getEquippedItem());
     checkEquippedItem(getMagicBookAnima());
   }
+  /**
+   * Checks if the magic book darkness is equipped correctly to the unit
+   */
 
   @Override
   @Test
@@ -139,7 +148,9 @@ public abstract class AbstractTestUnit implements ITestUnit {
     assertNull(getTestUnit().getEquippedItem());
     checkEquippedItem(getMagicBookDarknees());
   }
-
+  /**
+   * Checks if the magic book light is equipped correctly to the unit
+   */
   @Override
   @Test
   public void equipMagicBookLightTest() {
@@ -154,14 +165,12 @@ public abstract class AbstractTestUnit implements ITestUnit {
    */
   public void checkEquippedItem(IEquipableItem item) {
     assertNull(getTestUnit().getEquippedItem());
-
     getTestUnit().equipItem(item);
-
     assertNull(getTestUnit().getEquippedItem());
   }
 
   /**
-   * Tries to equip a weapon to  new unit
+   * Tries to exchange a weapon to  new unit
    *
    * @param item to be equipped
    * @param unit new owner
@@ -174,12 +183,22 @@ public abstract class AbstractTestUnit implements ITestUnit {
     assertFalse(unit.getItems().isEmpty());
 
   }
+  /**
+   * Tries to attack a  to  new unit with a weapon
+   *
+   * @param item to be equipped
+   * @param unit new owner
+   */
 
   public void attackTest(IUnit unit, IUnit other, IEquipableItem item) {
     item.setOwner(unit);
     unit.equipItem(item);
     unit.attackto(other);
   }
+  /**
+   * Attack a swordmaster with a sword
+   */
+
 
   @Override
   @Test
@@ -187,12 +206,19 @@ public abstract class AbstractTestUnit implements ITestUnit {
   public void attackSwordmasterTest() {
     attackTest(getSwordMaster(), getTestUnit(), getSword());
   }
+  /**
+   * Attack a archer with a bow
+   */
 
   @Override
   @Test
   public void attackArcherTest() {
     attackTest(getArcher(), getTestUnit(), getBow());
   }
+  /**
+   * Heal a cleric with a Staff
+   */
+
 
   @Override
   @Test
@@ -200,29 +226,48 @@ public abstract class AbstractTestUnit implements ITestUnit {
     attackTest(getCleric(), getTestUnit(), getStaff());
   }
 
+  /**
+   * Attack a fighter with a axe
+   */
+
+
   @Override
   @Test
   public void attackFighterTest() {
     attackTest(getFighter(), getTestUnit(), getAxe());
   }
-
+  /**
+   * Attack a hero with a spear
+   */
   @Override
   @Test
   public void attackHeroTest() {
     attackTest(getHero(), getTestUnit(), getSpear());
   }
 
+  /**
+   * Attack a Sorcecer with a  MagicBookAnima
+   */
+
   @Override
   @Test
   public void attackSorcecer1Test() {
     attackTest(getSorcecer(), getTestUnit(), getMagicBookAnima());
   }
+  /**
+   * Attack a Sorcecer with a  MagicBookDarkness
+   */
+
 
   @Override
   @Test
   public void attackSorcecer2Test() {
     attackTest(getSorcecer(), getTestUnit(), getMagicBookDarknees());
   }
+  /**
+   * Attack a Sorcecer with a  MagicBookLight
+   */
+
 
   @Override
   @Test
@@ -230,6 +275,11 @@ public abstract class AbstractTestUnit implements ITestUnit {
     attackTest(getSorcecer(), getTestUnit(), getMagicBookLight());
   }
 
+/*//////////////////////////*/
+
+  /**
+   * Sets up the units and weapons  to be tested  again in combat
+   */
 
   @BeforeEach
   public void setUp2() {
@@ -255,7 +305,9 @@ public abstract class AbstractTestUnit implements ITestUnit {
     this.magickbookD = new MagicBookDarkness("BookD", 20, 1, 3);
     this.magickbookL = new MagicBookLight("BookL", 20, 1, 3);
   }
-
+  /**
+   * Creates a set of testing units
+   */
 
   @Override
   public void setUnits2() {
@@ -266,6 +318,13 @@ public abstract class AbstractTestUnit implements ITestUnit {
     this.hero = new Hero(50, 2, field.getCell(2, 1), spear);
     this.sorcerer = new Sorcerer(40, 1, field.getCell(2, 1));
   }
+  /**
+   * Tries to equip two weapon to two units
+   * @param unit first unit
+   * @param other second unit
+   * @param item1 to be equipped
+   * @param item1 to be equipped
+   */
 
   public void attackTest2(IUnit unit, IUnit other, IEquipableItem item1, IEquipableItem item2) {
 
@@ -278,6 +337,9 @@ public abstract class AbstractTestUnit implements ITestUnit {
 
     unit.attackto(other);
   }
+  /**
+   * Combat between swordmaster and archer
+   */
 
   @Override
   @Test
@@ -285,43 +347,57 @@ public abstract class AbstractTestUnit implements ITestUnit {
   public void attackSwordmasterTest2() {
     attackTest2(getSwordMaster(), getArcher(), getSword(), getBow());
   }
-
+  /**
+   * Combat between archer and cleric
+   */
   @Override
   @Test
   public void attackArcherTest2() {
     attackTest2(getArcher(), getCleric(), getBow(), getStaff());
   }
-
+  /**
+   * Combat between cleric  and fighter
+   */
   @Override
   @Test
   public void attackClericTest2() {
     attackTest2(getCleric(), getFighter(), getStaff(), getAxe());
   }
-
+  /**
+   * Combat between fighter and hero
+   */
   @Override
   @Test
   public void attackFighterTest2() {
     attackTest2(getFighter(), getHero(), getAxe(), getSpear());
   }
-
+  /**
+   * Combat between hero and swordmaster
+   */
   @Override
   @Test
   public void attackHeroTest2() {
     attackTest2(getHero(), getSwordMaster(), getSpear(), getSword());
   }
-
+  /**
+   * Combat between Sorcecer and swordmaster
+   */
   @Override
   @Test
   public void attackSorcecer1Test2() {
     attackTest2(getSorcecer(), getSwordMaster(), getMagicBookAnima(), getSword());
   }
-
+  /**
+   * Combat between hero and Sorcecer
+   */
   @Override
   @Test
   public void attackSorcecer2Test2() {
     attackTest2(getHero(), getSorcecer(), getSpear(), getMagicBookDarknees());
   }
-
+  /**
+   * Combat between Sorcecer and archer
+   */
   @Override
   @Test
   public void attackSorcecer3Test2() {
@@ -337,21 +413,28 @@ public abstract class AbstractTestUnit implements ITestUnit {
     return axe;
   }
 
+
+  /**
+   * @return the test magickbookA
+   */
   @Override
   public MagicBookAnima getMagicBookAnima() {
     return magickbookA;
   }
 
+  /**
+   * @return the test magickbookD
+   */
   @Override
   public MagicBookDarkness getMagicBookDarknees() {
     return magickbookD;
   }
 
+
   @Override
   public MagicBookLight getMagicBookLight() {
     return magickbookL;
   }
-
 
   @Override
   @Test
@@ -395,6 +478,15 @@ public abstract class AbstractTestUnit implements ITestUnit {
   public Staff getStaff() {
     return staff;
   }
+  /**
+   * @return the test bow
+   */
+  @Override
+  public Bow getBow() {
+    return bow;
+  }
+
+
 
   @Override
   @Test
@@ -452,14 +544,6 @@ public abstract class AbstractTestUnit implements ITestUnit {
   }
 
 
-  /**
-   * @return the test bow
-   */
-  @Override
-  public Bow getBow() {
-    return bow;
-  }
-
 
   /**
    * Checks if the unit moves correctly
@@ -478,18 +562,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
     assertEquals(new Location(0, 2), getTestUnit().getLocation());
   }
 
-  /**
-   * @return the item being tested
-   */
 
-
-  public void checkWrong1ExchangeItem(IEquipableItem item, IUnit unit) {
-    assertTrue(getTestUnit().getItems().isEmpty());
-    getTestUnit().moveTo(getField().getCell(2, 2));
-    getTestUnit().exchangeItem(item, unit);
-    assertTrue(getTestUnit().getItems().isEmpty());
-
-  }
 
   /**
    * @return the test field
@@ -506,32 +579,44 @@ public abstract class AbstractTestUnit implements ITestUnit {
   public Alpaca getTargetAlpaca() {
     return targetAlpaca;
   }
-
+  /**
+   * @return the archer
+   */
   @Override
   public Archer getArcher() {
     return archer;
   }
-
+  /**
+   * @return the swordmaster
+   */
   @Override
   public SwordMaster getSwordMaster() {
     return swordmaster;
   }
-
+  /**
+   * @return the hero
+   */
   @Override
   public Hero getHero() {
     return hero;
   }
-
+  /**
+   * @return the sorcecer
+   */
   @Override
   public Sorcerer getSorcecer() {
     return sorcerer;
   }
-
+  /**
+   * @return the cleric
+   */
   @Override
   public Cleric getCleric() {
     return cleric;
   }
-
+  /**
+   * @return the fighter
+   */
   @Override
   public Fighter getFighter() {
     return fighter;

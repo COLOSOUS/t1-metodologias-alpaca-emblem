@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author Ignacio Slater Muñoz
+ * @author Victor Durán
  */
 public class HeroTest extends AbstractTestUnit {
 
@@ -26,6 +26,9 @@ public class HeroTest extends AbstractTestUnit {
   public IUnit getTestUnit() {
     return hero;
   }
+  /**
+   * Checks if the spear is equipped correctly to the unit
+   */
 
   @Override
   @Test
@@ -34,6 +37,10 @@ public class HeroTest extends AbstractTestUnit {
     hero.equipItem(spear);
     assertEquals(spear, hero.getEquippedItem());
   }
+  /**
+   * Checks if the spear is exchange correctly to the unit
+   */
+
 
   public void exchangeSpearTest() {
     setTestUnit();
