@@ -13,7 +13,6 @@ import model.map.Location;
  * @since 1.0
  */
 public class Hero extends AbstractUnit {
-
   /**
    * Creates a new Unit.
    *
@@ -26,7 +25,6 @@ public class Hero extends AbstractUnit {
       IEquipableItem... items) {
     super(hitPoints, movement, location, 3, items);
   }
-
   /**
    * Sets the currently equipped item of this unit.
    *
@@ -48,32 +46,19 @@ public class Hero extends AbstractUnit {
   }
 
   @Override
-
   public void attack(IUnit other){
     if (other.checkEquippedItem()) {
-
-
       IEquipableItem item = other.getEquippedItem();
       item.receiveSpearAttack((Spear) this.equippedItem);
-
     }
     else {
       IEquipableItem myitem=this.equippedItem;
-
       other.setEquippedItem(getbody());
-
       this.equippedItem=myitem;
       myitem.setOwner(this);
-
       IEquipableItem item2 = other.getEquippedItem();
-
       item2.setOwner(other);
-
       item2.receiveSpearAttack((Spear) this.equippedItem);
-
     }
-
   }
-
-
 }

@@ -143,10 +143,12 @@ public interface ITestUnit {
   Hero getHero();
   SwordMaster getSwordMaster();
   Archer getArcher();
-
-
   @Test
   void equipBowTest();
+  /**
+   * Try exchange between units
+   */
+
 
   @Test
   void exchangeAxeTest();
@@ -173,8 +175,8 @@ public interface ITestUnit {
   @Test
 
   void attackFighterTest2();
-  @Test
-  void attackHeroTest2();
+
+
   @Test
   void attackClericTest2();
   @Test

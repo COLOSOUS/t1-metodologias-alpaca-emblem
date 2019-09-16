@@ -1,24 +1,24 @@
-Resumen:El proyecto constade 3 paquetes los cuales posees las unidades personajes en que se basa el juego, los items que
+Resumen:El proyecto consta de 3 paquetes los cuales poseen las unidades personajes en que se basa el juego, los items que
 son armas que usan las unidades y el mapa que es donde se interactuar las unidades.
 
-La forma de ejecutar el programa es usando contructores para crear unidades y armas de las cuales  cada una siempre ,
-cada objeto dentro del jeugo posee su propia naturaleza y campacidades de interactuar entre si, exiten metodos que
-modifican parametros como posicion, arma equipada , entre otros valores que se consideran dentro del juego.
-Adicionalmente esisten metodos para interactuar entre unidades v/s unidades,por ejemplo unit.attackto(other)
-que comienza el combate entre 2 unidades generando sus interaciones de ataque y contra ataque correspondiente.
+La forma de ejecutar el programa es usando constructores para crear unidades y armas de las cuales  cada una siempre,
+cada objeto dentro del juego posee su propia naturaleza y capacidades de interactuar entre sí, existen métodos que
+modifican parámetros como posición, arma equipada , entre otros valores que se consideran dentro del juego.
+Adicionalmente existen métodos para interactuar entre unidades v/s unidades,por ejemplo unit.attackto(other)
+que comienza el combate entre 2 unidades generando sus interacciones de ataque y contraataque correspondiente.
 
-Por otro lado existe interacion entre armas y unidades las cuales pueden equiparce o intercambairce con las funciones
+Por otro lado existe interacción entre armas y unidades las cuales pueden equiparse o intercambiarse con las funciones
 unit.equipItem(item) y unit.exchangeItem(item,other_unit) respectivamente.
 
-Para el manejo de las unidades en el mapa existe un parametro llamado Location que determina la posicion dentro del
+Para el manejo de las unidades en el mapa existe un parámetro llamado Location que determina la posición dentro del
 tablero y unit.moveto(location) para desplazar la unidad.
 
-Dentro de la estructura que se decicion adoptar dentro del codigo existe el uso del metodo de double dispatch el cual
-evita el uso de (intance of clase) el cual es proclivee a ser un metodo ineficiente en comparacion. Este metodo llamado
-tambien DD se encuentra en el equipamiento de armas y en la generacion de combate pues debido a la naturaleza de las
-unidades  y las armas po un lado solo ciertos items son posible equiparlos para ciertas unidades, y ciertas
-caracteristicas de las armas hacen que se reciba mas o menos daño dependiendo de lo que se use como arma, por ende
-la solucion mas eficiente fue la que se dijo anteriormente.
+Dentro de la estructura que se decision adoptar dentro del código existe el uso del método de double dispatch el cual
+evita el uso de (intance of clase) el cual es proclive a ser un método ineficiente en comparación. Este método llamado
+también DD se encuentra en el equipamiento de armas y en la generación de combate pues debido a la naturaleza de las
+unidades  y las armas por un lado solo ciertos ítems son posible equiparlos para ciertas unidades, y ciertas
+características de las armas hacen que se reciba más o menos daño dependiendo de lo que se use como arma, por ende
+la solución más eficiente fue la que se dijo anteriormente.
 
 
 

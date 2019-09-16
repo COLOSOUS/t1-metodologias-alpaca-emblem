@@ -356,28 +356,198 @@ public abstract class AbstractTestUnit implements ITestUnit {
     attackTest2(getArcher(), getCleric(), getBow(), getStaff());
   }
   /**
-   * Combat between cleric  and fighter
+   * Combat between archer and swordmaster
    */
-  @Override
+
+  @Test
+  public void attackArcherTest3() {
+    attackTest2(getArcher(), getSwordMaster(), getBow(), getSword());
+  }
+  /**
+   * Combat between archer and fighter
+   */
+
+  @Test
+  public void attackArcherTest4() {
+    attackTest2(getArcher(), getFighter(), getBow(), getAxe());
+  }
+  /**
+   * Combat between archer and hero
+   */
+
+  @Test
+  public void attackArcherTest5() {
+    attackTest2(getArcher(), getHero(), getBow(), getSpear());
+  }
+  /**
+   * Combat between archer and sorcecer
+   */
+
+  @Test
+  public void attackArcherTest6() {
+    attackTest2(getArcher(), getSorcecer(), getBow(), getMagicBookAnima());
+  }
+  /**
+   * Combat between archer and sorcecer
+   */
+
+  @Test
+  public void attackArcherTest7() {
+    attackTest2(getArcher(), getSorcecer(), getBow(), getMagicBookDarknees());
+  }
+  /**
+   * Combat between archer and sorcecer
+   */
+
+  @Test
+  public void attackArcherTest8() {
+    attackTest2(getArcher(), getSorcecer(), getBow(), getMagicBookLight());
+  }
+  /**
+   * Combat between cleric  and swordmaster
+   */
+
   @Test
   public void attackClericTest2() {
+    attackTest2(getCleric(), getSwordMaster(), getStaff(), getSword());
+  }
+  /**
+   * Combat between cleric  and sorcecer
+   */
+
+  @Test
+  public void attackClericTest3() {
+    attackTest2(getCleric(), getSorcecer(), getStaff(), getMagicBookAnima());
+  }
+
+  @Test
+  public void attackClericTest4() {
+    attackTest2(getCleric(), getSorcecer(), getStaff(), getMagicBookDarknees());
+  }
+
+  @Test
+  public void attackClericTest5() {
+    attackTest2(getCleric(), getSorcecer(), getStaff(), getMagicBookLight());
+  }
+  /**
+   * Combat between cleric  and Hero
+   */
+
+  @Test
+  public void attackClericTest6() {
+    attackTest2(getCleric(), getHero(), getStaff(), getSpear());
+  }
+  /**
+   * Combat between cleric  and fighter
+   */
+
+  @Test
+  public void attackClericTest7() {
     attackTest2(getCleric(), getFighter(), getStaff(), getAxe());
   }
   /**
-   * Combat between fighter and hero
+   * Combat between cleric  and archer
    */
-  @Override
+
+  @Test
+  public void attackClericTest8() {
+    attackTest2(getCleric(), getArcher(), getStaff(), getBow());
+  }
+  /**
+   * Combat between fighter  and hero
+   */
+
   @Test
   public void attackFighterTest2() {
     attackTest2(getFighter(), getHero(), getAxe(), getSpear());
   }
   /**
+   * Combat between fighter  and swordmaster
+   */
+
+  @Test
+  public void attackFighterTest3() {
+    attackTest2(getFighter(), getHero(), getAxe(), getSpear());
+  }
+  /**
+   * Combat between fighter  and sorcecer
+   */
+
+  @Test
+  public void attackFighterTest4() {
+    attackTest2(getFighter(), getSorcecer(), getAxe(), getMagicBookAnima());
+  }
+  @Test
+  public void attackFighterTest5() {
+    attackTest2(getFighter(), getSorcecer(), getAxe(), getMagicBookDarknees());
+  }
+  @Test
+  public void attackFighterTest6() {
+    attackTest2(getFighter(), getSorcecer(), getAxe(), getMagicBookLight());
+  }
+  /**
+   * Combat between fighter  and cleric
+   */
+
+  @Test
+  public void attackFighterTest7() {
+    attackTest2(getFighter(), getCleric(), getAxe(), getStaff());
+  }
+  /**
+   * Combat between fighter  and archer
+   */
+
+  @Test
+  public void attackFighterTest8() {
+    attackTest2(getFighter(), getArcher(), getAxe(), getBow());
+  }
+  /**
    * Combat between hero and swordmaster
    */
-  @Override
+
   @Test
   public void attackHeroTest2() {
     attackTest2(getHero(), getSwordMaster(), getSpear(), getSword());
+  }
+  /**
+   * Combat between hero and sorcecer
+   */
+
+  @Test
+  public void attackHeroTest3() {
+    attackTest2(getHero(), getSorcecer(), getSpear(), getMagicBookAnima());
+  }
+  @Test
+  public void attackHeroTest4() {
+    attackTest2(getHero(), getSorcecer(), getSpear(), getMagicBookDarknees());
+  }
+  @Test
+  public void attackHeroTest5() {
+    attackTest2(getHero(), getSorcecer(), getSpear(), getMagicBookLight());
+  }
+  /**
+   * Combat between hero and fighter
+   */
+
+  @Test
+  public void attackHeroTest7() {
+    attackTest2(getHero(), getFighter(), getSpear(), getAxe());
+  }
+  /**
+   * Combat between hero and cleric
+   */
+
+  @Test
+  public void attackHeroTest8() {
+    attackTest2(getHero(), getCleric(), getSpear(), getStaff());
+  }
+  /**
+   * Combat between hero and archer
+   */
+
+  @Test
+  public void attackHeroTest9() {
+    attackTest2(getHero(), getArcher(), getSpear(), getBow());
   }
   /**
    * Combat between Sorcecer and swordmaster
@@ -493,6 +663,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
   public void equipBowTest() {
     checkEquippedItem(getBow());
   }
+
 
 
   @Override
